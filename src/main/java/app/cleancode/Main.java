@@ -5,6 +5,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.cleancode.compilation.MPCCompiler;
+
 public class Main {
 public static void main(String[] args) throws Exception {
 	List<String> inputFiles = new ArrayList<String>();
@@ -27,6 +29,9 @@ public static void main(String[] args) throws Exception {
 	if (inputFiles.size() < 1) {
 		System.err.println ("MPC: Error: no input files");
 		System.exit(-1);
+	}
+	for (String s : inputFiles) {
+		MPCCompiler.compile(Files.readString(Paths.get(s)));
 	}
 }
 }
