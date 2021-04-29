@@ -2,14 +2,13 @@ package app.cleancode.compilation;
 
 public class Rule {
 public final String pattern;
-public final Handler handler;
+protected Handler handler;
 
-protected Rule(String pattern, Handler handler) {
+protected Rule(String pattern) {
 	this.pattern = pattern;
-	this.handler = handler;
 }
 
-protected static interface Handler {
+public static interface Handler {
 	void handle (String line);
 }
 }
