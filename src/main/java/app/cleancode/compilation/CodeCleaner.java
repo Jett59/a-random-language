@@ -11,6 +11,8 @@ public static String removeExcludingQuotes (String code, String pattern) {
 	String result = "";
 	for (int i = 0; i < code.length(); i++) {
 		if (code.charAt(i) == '"') {
+			result = result + code.charAt(i);
+			i ++;
 			for (; code.charAt(i) != '"'; i ++) {
 				result = result + code.charAt(i);
 			}
