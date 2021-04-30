@@ -17,7 +17,6 @@ private Pattern pattern;
 
 	public Statement handle(String line) {
 		Matcher matcher = pattern.matcher(line);
-		System.out.println("checking "+line);
 		if (matcher.find()) {
 			String function = matcher.group(1);
 			String params = matcher.group(2);
