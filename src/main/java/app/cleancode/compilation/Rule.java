@@ -9,6 +9,6 @@ protected Rule(String pattern) {
 }
 
 public static interface Handler {
-	void handle (String line);
+	Statement handle (String line);
 }
 }

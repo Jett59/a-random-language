@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import app.cleancode.compilation.Rule;
+import app.cleancode.compilation.Statement;
 
 public class CallRule extends Rule implements Rule.Handler {
 private Pattern pattern;
@@ -14,14 +15,16 @@ private Pattern pattern;
 		super.handler = this;
 	}
 
-	public void handle(String line) {
+	public Statement handle(String line) {
 		Matcher matcher = pattern.matcher(line);
 		System.out.println("checking "+line);
 		if (matcher.find()) {
 			String function = matcher.group(1);
 			String params = matcher.group(2);
 			System.out.printf("%s was called with %s\n", function, params);
+			return new CallStatement (function, params);
 		}
+		return null;
 	}
 
 }
