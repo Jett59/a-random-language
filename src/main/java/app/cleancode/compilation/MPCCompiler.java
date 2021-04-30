@@ -1,10 +1,12 @@
 package app.cleancode.compilation;
 
 import app.cleancode.compilation.calls.CallRule;
+import app.cleancode.compilation.functions.FunctionRule;
 
 public class MPCCompiler {
 private static Rule [] rules = new Rule [] {
-	new CallRule()
+	new CallRule(),
+	new FunctionRule()
 };
 
 public static void compile (String input) {
@@ -23,7 +25,8 @@ public static void eval (String line, int lineNumber) {
 		}
 	}
 	if (result == null) {
-		System.out.printf("Error: unknown statement %s; on line %d\n", line, lineNumber + 1);
+		System.err.printf("Error: unknown statement %s; on line %d\n", line, lineNumber + 1);
+		System.exit(-3);
 	}
 }
 }
